@@ -14,7 +14,7 @@ int removeFirstDigit(int n)
 
     else return n % 10 + removeFirstDigit(n / 10) * 10;
 }
-
+ 
 bool primeCheck(int temp, vector<int> v)
 {
     bool valid = true;
