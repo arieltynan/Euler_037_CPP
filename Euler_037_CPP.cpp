@@ -45,14 +45,13 @@ bool primeCheckRev(int temp, vector<int> v)
     return valid;
 }
 
-
 int main()
 {
     // Prime seive adopted from Euler_035_CPP
     vector<int> primes;
-    int total = 0; //sum of valid primes
-    int n = 1000000; //primes less than n (1000000)
-    primes.push_back(2);
+    int total = 0; // sum of valid primes (answer)
+    int n = 1000000; // searching primes less than n (1000000)
+    primes.push_back(2); //first prime
     for (int i = 3; i < n; i++)
     {
         bool prime = true;
@@ -72,6 +71,7 @@ int main()
 
     //Primes without even numbers or fives
     vector<int> pVect; //final vector of primes without even numbers
+    pVect.push_back(23);  // 23 only valid number with a 2; an exception
     for (int i = 0; i < primes.size(); i++) //i = 4 to skip 2,3,5, and 7
     {
         bool evens = false;
@@ -81,13 +81,13 @@ int main()
             //cout << pTemp << " ";
             pTemp /= 10;
 
-            if ((pTemp % 2 == 0 && pTemp == 23) && pTemp != 0) // 23 only valid number with a 2; an exception
+            if (pTemp % 2 == 0 && pTemp != 0) 
             {
                 evens = true;
                 break;
             }
-        }
-
+        } //end while
+        
         if (evens == false)
         {
             pVect.push_back(primes[i]);
@@ -99,9 +99,6 @@ int main()
         bool valid = true; //if false, number is not prime for all iterations
         int temp = pVect[i];
 
-
-
-
         //Check if all are prime
         if (primeCheck(temp, pVect) == true && primeCheckRev(temp, pVect) && temp > 7)
         {
@@ -110,24 +107,5 @@ int main()
         }
     }
     cout << "The sum of the 11 primes is: " << total << endl;;
-        
-        
-
-
-
-
-
-        // Generate prime list
-        // no primes with 2,3,5,6,8,0
-    // for each prime
-        // Solve initial direction
-           // Series of %10 and /10 and checking all resulting values against prime list
-        // Reverse number 
-              /*  while (n != 0) {
-                    remainder = n % 10;
-                    reversedNumber = reversedNumber * 10 + remainder;
-                    n /= 10;
-                } */    
-             // Series of %10 and /10 and checking all resulting values against prime list
-}
+} //end main
 
