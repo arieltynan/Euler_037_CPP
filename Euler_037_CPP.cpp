@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Separates ints into digits
 int removeFirstDigit(int n)
 {
     if (n < 10) return 0;
@@ -103,7 +104,7 @@ int main()
         if (primeCheck(temp, pVect) == true && primeCheckRev(temp, pVect) && temp > 7)
         {
             total = total + temp;
-            cout << temp << endl;
+            // cout << temp << endl;
         }
     }
     cout << "The sum of the 11 primes is: " << total << endl;;
